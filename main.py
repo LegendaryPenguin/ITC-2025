@@ -1,7 +1,5 @@
 '''
-Autor: Bryson Sanders
-Creation Date: 05/30/2025
-Last modified: 06/01/2025
+Last modified: 06/23/2025
 Purpose: Impliment machine learning models with telemetry data to identify and categorize annomolies
 '''
 # Import Libraries
@@ -38,7 +36,7 @@ features = [
     "diff_peaks", "diff2_peaks", "diff_var", "diff2_var", "kurtosis", "skew",
 ] # removed len and dration as recomended by authors
 
-# Load Data
+# Load Data.
 df = pd.read_csv("dataset.csv", index_col="segment") 
 '''
 this code tells you column headers and quatity of null values for each column
