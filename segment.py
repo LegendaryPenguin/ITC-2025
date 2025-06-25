@@ -1,4 +1,5 @@
 '''
+segment.py
 Autor: Bryson Sanders
 Creation Date: 06/01/2025
 Last modified: 06/01/2025
