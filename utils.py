@@ -37,14 +37,10 @@ def evaluate_metrics(y_test, y_pred, y_proba=None, digits=3):
     return res
 
 def visualize_clusters(ddf, k_predicted):
-    #pd_test_df = pd.DataFrame(np_test_df, columns=features)
-    #pd_test_df['k_predicted'] = clusters
-    #sns.pairplot(data=pd_test_df, hue="k_predicted")
-    #plt.show()
+
     X_test_df = ddf.X_anomalies_test.copy()
     X_test_df["cluster"] = k_predicted
     X_test_df = X_test_df.reset_index()
-    #TESTING TESTING TESTING
     
     X = ddf.X2_anomalies_test
     pca = PCA(n_components=2)

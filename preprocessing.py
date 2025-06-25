@@ -56,14 +56,7 @@ class DatasetDataFrame:
    #normalizes all features to between 0 and 1 and updates csv files
    def normalize(self):
       prep = StandardScaler()
-      '''
-      self.X2_train_nominal = prep.fit_transform(self.X_train_nominal.iloc[1:, 1:])
-      self.X2_train = prep.transform(self.X_train.iloc[1:, 1:])
-      self.X2_test = prep.transform(self.X_test.iloc[1:, 1:])
-      self.X2_anomalies_train_nominal = prep.fit_transform(self.X_anomalies_train_nominal.iloc[1:, 1:])
-      self.X2_anomalies_train = prep.transform(self.X_anomalies_train.iloc[1:, 1:])
-      self.X2_anomalies_test = prep.transform(self.X_anomalies_test.iloc[1:, 1:])
-      '''
+      
       self.X2_train_nominal = prep.fit_transform(self.X_train_nominal)
       self.X2_train = prep.transform(self.X_train)
       self.X2_test = prep.transform(self.X_test)
@@ -79,18 +72,7 @@ class DatasetDataFrame:
          "X2_anomalies_train": self.X_anomalies_train,
          "X2_anomalies_test": self.X_anomalies_test
          } #helps to restore headers and index values for later
-      '''
-      for df_name, df_data in vars(self).items():
-         
-         if "X2" in df_name:  #ERRORS HERE, LOOK AT THE FIRST 2 ROWS OF ANY X2 CSVs
-            print(type(df_data))
-            df_data = np.insert(df_data, 0, original_data[df_name].iloc[0,1:], axis=0)
-            new_index = [original_data[df_name].index[0]] + list(original_data[df_name].index[1:])
-            final_df = pd.DataFrame(df_data, index = new_index, columns = original_data[df_name].columns[1:])
-            
-            #df_data = np.insert(df_data, 0, original_data[df_name].iloc[:,0], axis=1)
-            setattr(self,df_name, final_df)
-      '''
+      
 
     
 
